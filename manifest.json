@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "Darwin - QA Tools",
+  "version": "1.0",
+  "description": "Useful tools for the QA team - Made by Rocha",
+  "permissions": ["tabs"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": "icon.png"
+  }
+}

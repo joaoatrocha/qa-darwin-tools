@@ -41,8 +41,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function modifyUrl(url, language, currency) {
     let modifiedUrl = new URL(url);
-    modifiedUrl.searchParams.set('language', language);
+  
+    // Replace the language code in the path (e.g., /fr-fr/ to /en-us/)
+    const pathParts = modifiedUrl.pathname.split('/');
+    if (pathParts.length > 1 && pathParts[pathParts.length - 2].match(/^[a-z]{2}-[a-z]{2}$/)) {
+      pathParts[pathParts.length - 2] = language;  // Replace the language code in the path
+      modifiedUrl.pathname = pathParts.join('/');
+    }
+  
+    // Only add language query parameter if it's not already in the path
+    if (!modifiedUrl.pathname.includes(`/${language}/`)) {
+      modifiedUrl.searchParams.set('language', language);  // Add the language query parameter if not in the path
+    }
+  
+    // Ensure the currency query parameter is added
     modifiedUrl.searchParams.set('currency', currency);
+  
     return modifiedUrl.toString();
   }
 });

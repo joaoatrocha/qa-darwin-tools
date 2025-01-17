@@ -8,7 +8,7 @@
     "service_worker": "background.js"
   },
   "action": {
-    "default_popup": "popup/popup.html",
+    "default_popup": "qatool/qatool.html",
     "default_icon": "icon.png"
   }
 }

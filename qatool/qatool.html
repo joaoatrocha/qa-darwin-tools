@@ -1,141 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Darwin - QA Tools v1.0</title>
-  <script src="qatool.js"></script>
-  <style>
-    #descriptionMessage {
-      position: absolute;
-      top: 160px;
-      left: 140px;
-      font-size: 8px;
-      color: #666;
-    }
-    h1 {
-      margin-top: 0;
-    }
-    
-  </style>
+  <link rel="stylesheet" href="qatool.css">
 </head>
+
 <body>
   <h1>Darwin - QA Tools</h1>
-  <p id="descriptionMessage">Made for the QA team ♥</p>
+  <h3>Language and Currency (URL Handling)</h3>
   <label for="language">Language:</label>
   <select id="language">
-    <option value="en-us"selected>English (en-us)</option>
-    <option value="pt-pt">Portuguese (pt-pt)</option>
-    <option value="pt-br">Brazilian Portuguese (pt-br)</option>
-    <option value="tr-tr">Turkish (tr-tr)</option>
-    <option value="nl-nl">Dutch (nl-nl)</option>
-    <option value="fr-fr">French (fr-fr)</option>
-    <option value="da-dk">Danish (da-dk)</option>
-    <option value="fi-fi">Finnish (fi-fi)</option>
-    <option value="de-de">German (de-de)</option>
-    <option value="ja-jp">Japanese (ja-jp)</option>
-    <option value="nb-no">Norwegian (nb-no)</option>
-    <option value="es-es">Spanish (es-es)</option>
-    <option value="es-mx">Mexican (es-mx)</option>
-    <option value="sv-se">Swedish (sv-se)</option>
-    <option value="el-gr">Greek (el-gr)</option>
-    <option value="zh-cn">Chinese Simplified (zh-cn)</option>
-    <option value="zh-tw">Chinese Traditional (zh-tw)</option>
-    <option value="km-kh">Central Khmer (km-kh)</option>
-    <option value="ms-my">Malay (ms-my)</option>
-    <option value="id-id">Indonesian (id-id)</option>
-    <option value="ro-ro">Romanian (ro-ro)</option>
-    <option value="th-th">Thai (th-th)</option>
-    <option value="ko-kr">Korean (ko-kr)</option>
-    <option value="hr-hr">Croatian (hr-hr)</option>
-    <!-- Add more options as needed -->
+    <option value="en-us">🇺🇸 English (en-us)</option>
+    <option value="pt-pt">🇵🇹 Portuguese (pt-pt)</option>
+    <option value="pt-br">🇧🇷 Brazilian Portuguese (pt-br)</option>
+    <option value="tr-tr">🇹🇷 Turkish (tr-tr)</option>
+    <option value="nl-nl">🇳🇱 Dutch (nl-nl)</option>
+    <option value="fr-fr">🇫🇷 French (fr-fr)</option>
+    <option value="da-dk">🇩🇰 Danish (da-dk)</option>
+    <option value="fi-fi">🇫🇮 Finnish (fi-fi)</option>
+    <option value="de-de">🇩🇪 German (de-de)</option>
+    <option value="ja-jp">🇯🇵 Japanese (ja-jp)</option>
+    <option value="nb-no">🇳🇴 Norwegian (nb-no)</option>
+    <option value="es-es">🇪🇸 Spanish (es-es)</option>
+    <option value="es-mx">🇲🇽 Mexican (es-mx)</option>
+    <option value="sv-se">🇸🇪 Swedish (sv-se)</option>
+    <option value="el-gr">🇬🇷 Greek (el-gr)</option>
+    <option value="zh-cn">🇨🇳 Chinese Simplified (zh-cn)</option>
+    <option value="zh-tw">🇹🇼 Chinese Traditional (zh-tw)</option>
+    <option value="km-kh">🇰🇭 Central Khmer (km-kh)</option>
+    <option value="ms-my">🇲🇾 Malay (ms-my)</option>
+    <option value="id-id">🇮🇩 Indonesian (id-id)</option>
+    <option value="ro-ro">🇷🇴 Romanian (ro-ro)</option>
+    <option value="th-th">🇹🇭 Thai (th-th)</option>
+    <option value="ko-kr">🇰🇷 Korean (ko-kr)</option>
+    <option value="hr-hr">🇭🇷 Croatian (hr-hr)</option>
   </select>
-  <br><br>
-  <label for="currency">Currency:</label>
-  <select id="currency">
-    <option value="AMD">AMD (֏)</option>
-    <option value="ARS">ARS ($)</option>
-    <option value="AUD">AUD ($)</option>
-    <option value="AZN">AZN (₼)</option>
-    <option value="BGN">BGN (лв)</option>
-    <option value="BND">BND ($)</option>
-    <option value="BRL">BRL (R$)</option>
-    <option value="BTC">BTC ($)</option>
-    <option value="CAD">CAD ($)</option>
-    <option value="CHF">CHF (CHF)</option>
-    <option value="CLP">CLP ($)</option>
-    <option value="CNY">CNY (¥)</option>
-    <option value="COP">COP ($)</option>
-    <option value="CZK">CZK (Kč)</option>
-    <option value="DKK">DKK (kr.)</option>
-    <option value="ETH">ETH ($)</option>
-    <option value="EUR" selected>EUR (€)</option>
-    <option value="GBP">GBP (£)</option>
-    <option value="GEL">GEL (₾, ლ, GEL)</option>
-    <option value="HKD">HKD ($)</option>
-    <option value="HRK">HRK (kn)</option>
-    <option value="HUF">HUF (Ft)</option>
-    <option value="IDR">IDR (Rp)</option>
-    <option value="IDX">IDX (Cr.)</option>
-    <option value="ILS">ILS (₪)</option>
-    <option value="INR">INR (₹)</option>
-    <option value="IRR">IRR (﷼)</option>
-    <option value="ISK">ISK (kr)</option>
-    <option value="JPY">JPY (¥)</option>
-    <option value="KRW">KRW (₩)</option>
-    <option value="KZT">KZT (₸)</option>
-    <option value="LKR">LKR (Rs, රු, ரூ)</option>
-    <option value="LTL">LTL (Lt)</option>
-    <option value="MGA">MGA (Ar)</option>
-    <option value="MMK">MMK (K)</option>
-    <option value="MXN">MXN ($)</option>
-    <option value="MYR">MYR (RM)</option>
-    <option value="NGN">NGN (₦)</option>
-    <option value="NOK">NOK (kr)</option>
-    <option value="NZD">NZD ($)</option>
-    <option value="PEN">PEN (S/.)</option>
-    <option value="PKR">PKR (₨)</option>
-    <option value="PLN">PLN (zł)</option>
-    <option value="RON">RON (lei)</option>
-    <option value="RUB">RUB (₽)</option>
-    <option value="SEK">SEK (kr)</option>
-    <option value="SGD">SGD ($)</option>
-    <option value="TON">TON ($)</option>
-    <option value="THB">THB (฿)</option>
-    <option value="TRY">TRY (₺)</option>
-    <option value="TWD">TWD ($)</option>
-    <option value="UAH">UAH (₴ or грн)</option>
-    <option value="USD">USD ($)</option>
-    <option value="USDT">USDT ($)</option>
-    <option value="UZS">UZS</option>
-    <option value="VND">VND (₫)</option>
-    <option value="VNX">VNX ($)</option>
-    <option value="XAF">XAF (FCFA)</option>
-    <option value="ZAR">ZAR (R)</option>
-    <!-- Add more options as needed -->
-  </select>
-  <br><br>
-  <button id="modifyButton">Modify URL</button>
-  <script>
-    var lastLanguage = localStorage.getItem('lastLanguage');
-    if (lastLanguage) {
-      document.getElementById('language').value = lastLanguage;
-    }
-
-    var lastCurrency = localStorage.getItem('lastCurrency');
-    if (lastCurrency) {
-      document.getElementById('currency').value = lastCurrency;
-    }
-
-    document.getElementById('language').addEventListener('change', function() {
-      var selectedLanguage = this.value;
-      localStorage.setItem('lastLanguage', selectedLanguage);
-    });
-
-    document.getElementById('currency').addEventListener('change', function() {
-      var selectedCurrency = this.value;
-      localStorage.setItem('lastCurrency', selectedCurrency);
-    });
-  </script>
 </body>
-</html>
 
+</html>
+<br><br>
+<label for="currency">Currency:</label>
+<select id="currency">
+  <option value="AMD">AMD (֏)</option>
+  <option value="ARS">ARS ($)</option>
+  <option value="ARS_PA">ARS_PA ($)</option>
+  <option value="AUD">AUD ($)</option>
+  <option value="AZN">AZN (₼)</option>
+  <option value="BGN">BGN (лв)</option>
+  <option value="BND">BND ($)</option>
+  <option value="BRL">BRL (R$)</option>
+  <option value="BTC">BTC ($)</option>
+  <option value="CAD">CAD ($)</option>
+  <option value="CHF">CHF (CHF)</option>
+  <option value="CLP">CLP ($)</option>
+  <option value="CNY">CNY (¥)</option>
+  <option value="COP">COP ($)</option>
+  <option value="CZK">CZK (Kč)</option>
+  <option value="DKK">DKK (kr.)</option>
+  <option value="ETH">ETH ($)</option>
+  <option value="EUR" selected>EUR (€)</option>
+  <option value="GBP">GBP (£)</option>
+  <option value="GEL">GEL (₾, ლ, GEL)</option>
+  <option value="HKD">HKD ($)</option>
+  <option value="HRK">HRK (kn)</option>
+  <option value="HUF">HUF (Ft)</option>
+  <option value="IDR">IDR (Rp)</option>
+  <option value="IDX">IDX (Cr.)</option>
+  <option value="ILS">ILS (₪)</option>
+  <option value="INR">INR (₹)</option>
+  <option value="IRR">IRR (﷼)</option>
+  <option value="ISK">ISK (kr)</option>
+  <option value="JPY">JPY (¥)</option>
+  <option value="KRW">KRW (₩)</option>
+  <option value="KZT">KZT (₸)</option>
+  <option value="LKR">LKR (Rs, රු, ரூ)</option>
+  <option value="LTL">LTL (Lt)</option>
+  <option value="MGA">MGA (Ar)</option>
+  <option value="MMK">MMK (K)</option>
+  <option value="MXN">MXN ($)</option>
+  <option value="MYR">MYR (RM)</option>
+  <option value="NGN">NGN (₦)</option>
+  <option value="NOK">NOK (kr)</option>
+  <option value="NZD">NZD ($)</option>
+  <option value="PEN">PEN (S/.)</option>
+  <option value="PKR">PKR (₨)</option>
+  <option value="PLN">PLN (zł)</option>
+  <option value="RON">RON (lei)</option>
+  <option value="RUB">RUB (₽)</option>
+  <option value="SEK">SEK (kr)</option>
+  <option value="SGD">SGD ($)</option>
+  <option value="TON">TON ($)</option>
+  <option value="THB">THB (฿)</option>
+  <option value="TRY">TRY (₺)</option>
+  <option value="TWD">TWD ($)</option>
+  <option value="UAH">UAH (₴ or грн)</option>
+  <option value="USD">USD ($)</option>
+  <option value="USDT">USDT ($)</option>
+  <option value="UZS">UZS</option>
+  <option value="VND">VND (₫)</option>
+  <option value="VNX">VNX ($)</option>
+  <option value="XAF">XAF (FCFA)</option>
+  <option value="ZAR">ZAR (R)</option>
+</select>
+<br><br>
+<button id="modifyButton">Modify URL</button>
+<h3>Config Manager</h3>
+<label>Validate the Min/Max Bet</label>
+<button id="copyScriptButton1">📋</button>
+<label>Validate Bet Options within Limit</label>
+<button id="copyScriptButton2">📋</button>
+<h3>Other Tools WIP</h3>
+<script src="qatool.js"></script>
+</body>
+
+</html>

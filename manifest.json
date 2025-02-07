@@ -3,12 +3,17 @@
   "name": "Darwin - QA Tools",
   "version": "1.0",
   "description": "Useful tools for the QA team - Made by Rocha",
-  "permissions": ["tabs"],
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "storage"
+  ],
   "background": {
     "service_worker": "background.js"
   },
   "action": {
     "default_popup": "qatool/qatool.html",
     "default_icon": "icon.png"
-  }
+  },
+  "update_url": "https://raw.githubusercontent.com/joaoatrocha/qa-darwin-tools/main/updates.xml" 
 }
